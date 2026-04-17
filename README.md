@@ -68,7 +68,7 @@ A MuseScore 4 plugin that displays an interactive bandoneon keyboard diagram, hi
 
 ## Tuning System
 
-This plugin uses the **Rheinische Tonlage** (Rhine tuning), the standard system used for Argentine tango bandoneons. Each button produces a different note depending on whether the bellows are opening or closing.
+This plugin uses the **Rheinische Tonlage**, the standard system used for Argentine/Uruguayan tango bandoneons. 
 
 | Side | Buttons | Clef |
 |------|---------|------|
