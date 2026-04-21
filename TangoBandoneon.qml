@@ -495,7 +495,7 @@ MuseScore {
         ListElement { px:  97; py: 212; pitch_open: 49; pitch_close: 51 }
         ListElement { px:  95; py: 246; pitch_open: 46; pitch_close: 46 }
         ListElement { px:  99; py: 287; pitch_open: 44; pitch_close: 44 }
-        ListElement { px: 125; py: 344; pitch_open: 45; pitch_close: 50 }  // La2 abriendo / Re3 cerrando
+        ListElement { px: 125; py: 344; pitch_open: 40; pitch_close: 50 }  // Mi2 abriendo / Re3 cerrando
     }
 
     onRun: {
