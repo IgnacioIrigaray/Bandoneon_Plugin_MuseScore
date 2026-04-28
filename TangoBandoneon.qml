@@ -490,8 +490,8 @@ MuseScore {
         ListElement { px: 116; py: 229; pitch_open: 51; pitch_close: 60 }
         ListElement { px: 117; py: 265; pitch_open: 55; pitch_close: 58 }
         ListElement { px: 120; py: 305; pitch_open: 45; pitch_close: 50 }
-        ListElement { px: 115; py: 124; pitch_open: 68; pitch_close: 67 }
-        ListElement { px: 102; py: 163; pitch_open: 53; pitch_close: 63 }
+        ListElement { px: 115; py: 124; pitch_open: 53; pitch_close: 67 }
+        ListElement { px: 102; py: 163; pitch_open: 68; pitch_close: 63 }
         ListElement { px:  97; py: 212; pitch_open: 49; pitch_close: 51 }
         ListElement { px:  95; py: 246; pitch_open: 46; pitch_close: 46 }
         ListElement { px:  99; py: 287; pitch_open: 44; pitch_close: 44 }
