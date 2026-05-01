@@ -30,6 +30,10 @@ MuseScore {
         title:  "Tango Bandoneon"
         visible: false
 
+        readonly property real aspectRatio: 640 / 576
+        onWidthChanged:  height = Math.round(width  / aspectRatio)
+        onHeightChanged: width  = Math.round(height * aspectRatio)
+
         property int    tick: 0
         property string currentBow:  "none"
         property string currentMode: "dual"   // "dual" | "split"
@@ -288,20 +292,20 @@ MuseScore {
                         }
                     }
 
-                    Text {
-                        visible: mainWindow.currentMode === "dual"
-                        text: "· Seleccioná cualquier nota — ambos teclados se actualizan"
-                        font.pixelSize: 10
-                        color: "#555555"
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+
                 }
             }
 
             // ── Área de botones ──────────────────────────────────────────────
             Item {
+                id: buttonArea
                 width:  parent.width
                 height: parent.height - 44 - 36 - 36  // -fuelle -modo -leyenda
+
+                // Factores de escala respecto al tamaño de referencia con el que
+                // se calibraron las coordenadas px/py (ventana 640×576 → área 640×460)
+                readonly property real scaleX: width  / 640
+                readonly property real scaleY: height / 460
 
                 // Fondo oscuro (visible en zonas transparentes de la imagen)
                 Rectangle {
@@ -330,8 +334,8 @@ MuseScore {
                         border.color: mainWindow.color_border
                         border.width: 1.5
                         opacity:      btnColor === mainWindow.color_neither ? 0 : 0.88
-                        x: model.px - bsize/2
-                        y: model.py - bsize/2
+                        x: model.px * buttonArea.scaleX - bsize/2
+                        y: model.py * buttonArea.scaleY - bsize/2
 
                         Text {
     			anchors.centerIn: parent
@@ -361,8 +365,8 @@ MuseScore {
                         border.color: mainWindow.color_border
                         border.width: 1.5
                         opacity:      btnColor === mainWindow.color_neither ? 0 : 0.88
-                        x: model.px - bsize/2
-                        y: model.py - bsize/2
+                        x: model.px * buttonArea.scaleX - bsize/2
+                        y: model.py * buttonArea.scaleY - bsize/2
 
                        Text {
     			anchors.centerIn: parent
@@ -486,7 +490,7 @@ MuseScore {
         ListElement { px: 146; py: 324; pitch_open: 50; pitch_close: 43 }
         ListElement { px: 138; py: 110; pitch_open: 41; pitch_close: 42 }
         ListElement { px: 127; py: 149; pitch_open: 58; pitch_close: 48 }
-        ListElement { px: 117; py: 191; pitch_open: 65; pitch_close: 61 }
+        ListElement { px: 117; py: 191; pitch_open: 65; pitch_close: 49 }
         ListElement { px: 116; py: 229; pitch_open: 51; pitch_close: 60 }
         ListElement { px: 117; py: 265; pitch_open: 55; pitch_close: 58 }
         ListElement { px: 120; py: 305; pitch_open: 45; pitch_close: 50 }
@@ -495,7 +499,7 @@ MuseScore {
         ListElement { px:  97; py: 212; pitch_open: 49; pitch_close: 51 }
         ListElement { px:  95; py: 246; pitch_open: 46; pitch_close: 46 }
         ListElement { px:  99; py: 287; pitch_open: 44; pitch_close: 44 }
-        ListElement { px: 125; py: 344; pitch_open: 40; pitch_close: 50 }  // Mi2 abriendo / Re3 cerrando
+        ListElement { px: 125; py: 344; pitch_open: 40; pitch_close: 38 }
     }
 
     onRun: {
